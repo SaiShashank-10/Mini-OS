@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import {
   Folder,
@@ -15,6 +14,7 @@ import {
   Trash,
   ArrowDown,
   ArrowRight,
+  X
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
