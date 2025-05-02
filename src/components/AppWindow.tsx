@@ -74,10 +74,14 @@ const AppWindow: React.FC<AppWindowProps> = ({ app }) => {
     };
   }, [isDragging, dragOffset, app.id, updateAppPosition]);
   
-  // Focus window when it appears
+  // Focus window when it appears, but avoid the infinite loop
   useEffect(() => {
-    setActiveApp(app.id);
-  }, [app.id, setActiveApp]);
+    // Only run this on mount, not on every render
+    if (!app.isActive) {
+      setActiveApp(app.id);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   
   // Render the appropriate app content
   const renderAppContent = () => {
@@ -136,7 +140,7 @@ const AppWindow: React.FC<AppWindowProps> = ({ app }) => {
       </div>
       
       {/* Window Content */}
-      <div className="window-content">
+      <div className="flex-1 overflow-hidden">
         {renderAppContent()}
       </div>
     </div>
