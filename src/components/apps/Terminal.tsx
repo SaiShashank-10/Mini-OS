@@ -35,10 +35,10 @@ const Terminal: React.FC = () => {
     const command = cmd.trim().toLowerCase();
     
     // Record the command
-    const newHistory = [...commandHistory, { type: "input", content: `> ${cmd}` }];
+    const newHistory = [...commandHistory, { type: "input" as const, content: `> ${cmd}` }];
     
     if (command === "") {
-      setCommandHistory([...newHistory, { type: "output", content: "" }]);
+      setCommandHistory([...newHistory, { type: "output" as const, content: "" }]);
       return;
     }
     
