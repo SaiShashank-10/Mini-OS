@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				app: {
+					window: 'hsl(var(--app-window))',
+					'window-foreground': 'hsl(var(--app-window-foreground))',
+					toolbar: 'hsl(var(--app-toolbar))',
+					'toolbar-foreground': 'hsl(var(--app-toolbar-foreground))',
+					terminal: 'hsl(var(--app-terminal))',
+					'terminal-foreground': 'hsl(var(--app-terminal-foreground))',
 				}
 			},
 			borderRadius: {
@@ -84,11 +93,32 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'slide-up': {
+					from: {
+						transform: 'translateY(100%)'
+					},
+					to: {
+						transform: 'translateY(0)'
+					}
+				},
+				'fade-in': {
+					from: {
+						opacity: '0'
+					},
+					to: {
+						opacity: '1'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'slide-up': 'slide-up 0.3s ease-out',
+				'fade-in': 'fade-in 0.3s ease-out'
+			},
+			backgroundImage: {
+				'desktop': "url('/wallpaper.jpg')",
 			}
 		}
 	},
